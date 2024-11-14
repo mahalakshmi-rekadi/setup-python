@@ -15,7 +15,8 @@ class PipCache extends CacheDistributor {
 
   constructor(
     private pythonVersion: string,
-    cacheDependencyPath = '**/requirements.txt'
+    cacheDependencyPath = '**/requirements.txt',
+    private currentWorkspace: string = process.env['GITHUB_WORKSPACE'] || ''
   ) {
     super('pip', cacheDependencyPath);
   }
@@ -60,8 +61,8 @@ class PipCache extends CacheDistributor {
 
   protected async computeKeys() {
     const hash =
-      (await glob.hashFiles(this.cacheDependencyPath)) ||
-      (await glob.hashFiles(this.cacheDependencyBackupPath));
+      (await glob.hashFiles(this.cacheDependencyPath, this.currentWorkspace)) ||
+      (await glob.hashFiles(this.cacheDependencyBackupPath, this.currentWorkspace));
     let primaryKey = '';
     let restoreKey = '';
 
