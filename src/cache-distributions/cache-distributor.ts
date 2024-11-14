@@ -24,6 +24,8 @@ abstract class CacheDistributor {
 
   public async restoreCache() {
     const {primaryKey, restoreKey} = await this.computeKeys();
+    core.debug(`Computed primary key: ${primaryKey}`);
+    core.debug(`Computed restore keys: ${restoreKey}`);
     if (primaryKey.endsWith('-')) {
       const file =
         this.packageManager === 'pip'
@@ -37,12 +39,14 @@ abstract class CacheDistributor {
     }
 
     const cachePath = await this.getCacheGlobalDirectories();
+    core.debug(`Cache paths: ${cachePath}`);
 
     core.saveState(State.CACHE_PATHS, cachePath);
 
     let matchedKey: string | undefined;
     try {
       matchedKey = await cache.restoreCache(cachePath, primaryKey, restoreKey);
+      core.debug(`Matched key: ${matchedKey}`);
     } catch (err) {
       const message = (err as Error).message;
       core.info(`[warning]${message}`);
