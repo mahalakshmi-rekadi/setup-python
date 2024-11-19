@@ -14,11 +14,14 @@ jobs:
       run: echo "/usr/sbin" >> $GITHUB_PATH
 
 
-    - name: Setup Python 3.11
+    - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: '3.11'
-        install-dir: $HOME/python
+        python-version: 3.11
+        check-latest: false
+        token: ${{ secrets.GITHUB_TOKEN }}
+        update-environment: true
+        allow-prereleases: false
 
     - name: Check Python version
       run: $HOME/python/bin/python --version
