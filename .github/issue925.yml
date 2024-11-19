@@ -1,7 +1,6 @@
 name: Reproduce Python Install Issue
-
-on: [push]
-
+on: 
+   workflow_dispatch:
 jobs:
   setup-python:
     runs-on: macos-latest
