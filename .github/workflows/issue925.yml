@@ -1,0 +1,15 @@
+name: Reproduce Python Install Issue
+on: 
+   workflow_dispatch:
+jobs:
+  setup-python:
+    runs-on: macos-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Setup Python 3.11
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.11'
