@@ -26,6 +26,8 @@ abstract class CacheDistributor {
     const {primaryKey, restoreKey} = await this.computeKeys();
     core.debug(`Computed primary key: ${primaryKey}`);
     core.debug(`Computed restore keys: ${restoreKey}`);
+    // Log the value of primaryKey to see what it ends with
+    core.debug(`Primary key ends with: ${primaryKey.slice(-1)}`);
     if (primaryKey.endsWith('-')) {
       const file =
         this.packageManager === 'pip'
