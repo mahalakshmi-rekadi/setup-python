@@ -23,5 +23,4 @@ jobs:
         update-environment: true
         allow-prereleases: false
 
-    - name: Check Python version
-      run: $HOME/python/bin/python --version
+    
