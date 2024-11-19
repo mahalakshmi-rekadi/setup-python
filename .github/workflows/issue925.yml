@@ -3,7 +3,7 @@ on:
    workflow_dispatch:
 jobs:
   setup-python:
-    runs-on: ubuntu-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
