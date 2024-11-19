@@ -10,10 +10,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Update PATH
-      run: echo "/usr/sbin" >> $GITHUB_PATH
-
-
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
