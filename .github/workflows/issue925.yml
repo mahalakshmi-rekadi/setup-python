@@ -3,7 +3,7 @@ on:
    workflow_dispatch:
 jobs:
   setup-python:
-    runs-on: macos-latest
+    runs-on: ubuntu-latest
 
     steps:
     - name: Checkout repository
