@@ -8,11 +8,6 @@ jobs:
     steps:
     - name: Checkout repository
       uses: actions/checkout@v2
-    - name: Install Sudo
-      run: |
-       brew update &&
-       brew install sudo
-
     - name: Setup Python 3.11
       uses: actions/setup-python@v4
       with:
