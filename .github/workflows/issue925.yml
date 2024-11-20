@@ -5,7 +5,7 @@ on:
 
 jobs:
   setup-python:
-    runs-on: macos-latest
+    runs-on: self-hosted
 
     steps:
     - name: Checkout repository
