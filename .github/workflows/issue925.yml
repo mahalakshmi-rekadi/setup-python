@@ -13,10 +13,12 @@ jobs:
     - name: Set up Python
       uses: actions/setup-python@v4
       with:
-        python-version: 3.11
-        check-latest: false
-        token: ${{ secrets.GITHUB_TOKEN }}
-        update-environment: true
-        allow-prereleases: false
+        python-version: '3.11'
+
+    - name: Install Python package
+      run: |
+        echo "/usr/sbin" >> $GITHUB_PATH
+        sudo installer -pkg python-3.11.9-darwin-arm64.pkg -target /
+
 
     
