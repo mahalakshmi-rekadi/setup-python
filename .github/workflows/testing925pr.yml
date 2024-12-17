@@ -1,0 +1,15 @@
+name: Reproduce Python Install Issue
+on: 
+   workflow_dispatch:
+jobs:
+  setup-python:
+    runs-on: self-hosted
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v4
+
+    - name: Setup Python 3.11
+      uses: mahalakshmi-rekadi/setup-python@prchanges
+      with:
+        python-version: '3.11'
